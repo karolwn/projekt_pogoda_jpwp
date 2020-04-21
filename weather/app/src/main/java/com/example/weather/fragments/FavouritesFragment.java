@@ -32,7 +32,7 @@ public class FavouritesFragment extends Fragment implements AdapterView.OnItemLo
     private static final String FAVOURITES = "favourites";
 
     private FragmentFavouritesListener listener;
-    private ArrayList<FavouritesModel> listItems = new ArrayList<>();
+    private ArrayList<FavouritesModel> listItems;
     private MyArrayAdapter myListAdapter;
     private ImageButton del;
     private TextView delText;
@@ -150,6 +150,9 @@ public class FavouritesFragment extends Fragment implements AdapterView.OnItemLo
      * @return true if found else false;
      */
     public boolean isCityFavourite(String city) {
+        if (listItems == null) {
+            listItems = new ArrayList<>();
+        }
         for (int i = 0; i < listItems.size(); i++){
             if (listItems.get(i).getCityName().toLowerCase().equals(city.toLowerCase())){
                 return true;

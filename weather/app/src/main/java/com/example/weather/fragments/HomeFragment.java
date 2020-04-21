@@ -493,18 +493,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onDestroy();
 
     }
-    @Override
-    public void onStop() {
-        super.onStop();
 
-    }
     /**
      * Called when the view hierarchy associated with user leaves fragment.
      * It saves currently displayed city, and stops location services to save power.
      */
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         listener.cityToRetain(cityNameText);
         if (fusedLocationProviderClient != null) {
             fusedLocationProviderClient.removeLocationUpdates(locationCallback);
